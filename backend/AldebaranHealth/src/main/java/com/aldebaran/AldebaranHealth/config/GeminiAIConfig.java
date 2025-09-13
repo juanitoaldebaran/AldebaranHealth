@@ -1,6 +1,7 @@
 package com.aldebaran.AldebaranHealth.config;
 
 import com.google.genai.Client;
+import com.google.genai.types.HttpOptions;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,14 +9,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GeminiAIConfig {
 
-    @Value("${spring.gemini.api-key}")
     private String geminiApiKey;
-    @Bean
+
+    public GeminiAIConfig(@Value("${spring.gemini.api-key}") String geminiApiKey) {
+        this.geminiApiKey = geminiApiKey;
+    }
+     @Bean
     public Client GeminiAIClient() {
-        Client client = Client.builder()
-                .apiKey(geminiApiKey)
-                .vertexAI(true)
-                .build();
+         Client client = Client.builder()
+                 .apiKey(geminiApiKey)
+                 .httpOptions(HttpOptions.builder()
+                         .apiVersion("v1beta")
+                         .build())
+                 .build();
 
         return client;
     }

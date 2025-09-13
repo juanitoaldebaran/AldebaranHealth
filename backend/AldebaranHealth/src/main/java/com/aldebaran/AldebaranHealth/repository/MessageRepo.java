@@ -10,9 +10,10 @@ import java.util.List;
 @Repository
 public interface MessageRepo extends JpaRepository<Message, Long> {
     Message findByContent(String content);
-    List<Message> findByConversationIdOrderByCreatedAtAsc(Long conversationId);
+    List<Message> findByConversation_ConversationIdOrderByCreatedAtAsc(Long conversationId);
 
-    List<Message> findByConversationIdOrderByCreatedAtDesc(Long conversationId);
+    List<Message> findByConversation_ConversationIdOrderByCreatedAtDesc(Long conversationId);
 
     List<Message> findByConversation_ConversationIdAndSenderType(Long conversationId, SenderType senderType);
+
 }

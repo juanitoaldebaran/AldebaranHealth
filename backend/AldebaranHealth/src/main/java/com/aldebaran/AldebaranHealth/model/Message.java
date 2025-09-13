@@ -22,7 +22,7 @@ public class Message {
     @Column (name = "message_id")
     private Long messageId;
 
-    @Column (name = "content")
+    @Column (name = "content", nullable = false, columnDefinition = "TEXT")
     private String content;
 
     @Column (name = "sender_type")
