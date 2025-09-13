@@ -44,6 +44,29 @@ public class ConversationService {
         }
     }
 
+    public List<Conversation> searchUserConversationsByName(String userEmail, String searchTerm) {
+        try {
+            if (searchTerm == null || searchTerm.trim().isEmpty()) {
+                throw new RuntimeException("Search term cannot be empty");
+            }
+
+            User user = userRepo.findByEmail(userEmail)
+                    .orElseThrow(() -> new RuntimeException("User not found with email: " + userEmail));
+
+            List<Conversation> allUserConversations = conversationRepo.findByUser(user);
+            return allUserConversations.stream()
+                    .filter(conv -> conv.getName().toLowerCase().contains(searchTerm.toLowerCase()))
+                    .toList();
+        } catch (RuntimeException e) {
+            logger.error("Failed to search conversations for user {} with term '{}': {}", userEmail, searchTerm, e.getMessage());
+            throw e;
+        } catch (Exception e) {
+            logger.error("Unexpected error during conversation search: {}", e.getMessage());
+            throw new RuntimeException("Failed to search conversations", e);
+        }
+    }
+
+
     public List<Conversation> getConversationsByUser(String email) {
         try {
             User user = userRepo.findByEmail(email).orElseThrow(() -> new RuntimeException("Failed to get a conversation by email" + email));

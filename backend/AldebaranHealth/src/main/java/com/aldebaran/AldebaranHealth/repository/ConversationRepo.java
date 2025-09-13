@@ -13,5 +13,4 @@ public interface ConversationRepo extends JpaRepository<Conversation, Long> {
     List<Conversation> findByUser(User user);
 
     List<Conversation> findByNameContainingIgnoreCase(String name);
-
 }

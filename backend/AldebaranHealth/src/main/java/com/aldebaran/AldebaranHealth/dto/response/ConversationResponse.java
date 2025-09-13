@@ -1,6 +1,7 @@
 package com.aldebaran.AldebaranHealth.dto.response;
 
 import com.aldebaran.AldebaranHealth.enums.SessionType;
+import com.aldebaran.AldebaranHealth.model.Conversation;
 
 import java.time.LocalDateTime;
 
@@ -10,11 +11,11 @@ public class ConversationResponse {
     private SessionType sessionType;
     private LocalDateTime createdAt;
 
-    public ConversationResponse(Long conversationId, String name, SessionType sessionType, LocalDateTime createdAt) {
-        this.conversationId = conversationId;
-        this.name = name;
-        this.sessionType = sessionType;
-        this.createdAt = createdAt;
+    public ConversationResponse(Conversation conversation) {
+        this.conversationId = conversation.getConversationId();
+        this.name = conversation.getName();
+        this.sessionType = conversation.getSessionType();
+        this.createdAt = conversation.getCreatedAt();
     }
 
     public ConversationResponse() {
