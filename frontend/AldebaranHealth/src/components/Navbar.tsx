@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import UserMenu from "./UserMenu";
 
 interface NavLinkType {
     name: string;
@@ -43,11 +44,9 @@ export default function Navbar() {
                                     ))}
                             </ul>
                         </div>
-
-                        <div className="flex items-center justify-center">
-                            <Link to={"/signup"} className="font-light p-2  duration-200 text-[15px] hover:border-b-2  border-blue-600">
-                                Create an account
-                            </Link>
+                        
+                        <div>
+                            <UserMenu />
                         </div>
                 </div>
            </nav>

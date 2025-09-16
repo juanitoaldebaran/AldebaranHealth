@@ -9,11 +9,73 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import React, { useState } from "react"
+import type { LoginUserRequest } from "@/types/auth"
+import useNotification from "@/hooks/useNotification"
+import useAuth from "@/hooks/useAuth"
+import Notification from "./Notification"
+import LoadingSpinner from "./LoadingSpinner"
+import { useNavigate } from "react-router-dom"
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+
+  const [loginData, setLoginData] = useState<LoginUserRequest>({
+      email: "",
+      password: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent <HTMLInputElement>) => {
+      const {name, value} = e.target;
+      setLoginData((prev) => ({
+        ...prev,
+        [name]: value
+      }))
+  };
+
+  const {notification, showNotification, hideNotification} = useNotification();
+  const [isLoading, setIsLoading] = useState(false);
+  const {login} = useAuth();
+  const isFormValid = loginData.email && loginData.password;
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+      e.preventDefault();
+  
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!regex.test(loginData.email)) {
+        showNotification("Please input a valid email address", "warning");
+        return;
+      }
+  
+      if (!isFormValid) {
+        showNotification("Please check required field", "warning");
+        return;
+      }
+  
+      setIsLoading(true);
+      try {
+        await login(loginData);
+        console.log("Login has been successfull");
+        showNotification("Successfully login, redirect to the main page", "success");
+        setTimeout(() => {
+            navigate("/");
+        }, 2000);
+      } catch (error: any) {
+        showNotification("Failed to login for user", "error");
+        console.log("User successfully log in");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+        return;
+      } finally {
+        setIsLoading(false);
+      }
+  
+    }
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -24,10 +86,14 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid gap-6">
               <div className="flex flex-col gap-4">
-                <Button variant="outline" className="w-full">
+                <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => window.location.href="http://localhost:8080/oauth2/authorization/google"}
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
                       d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"
@@ -47,17 +113,27 @@ export function LoginForm({
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
+                    name="email"
+                    value={loginData.email}
                     type="email"
                     placeholder="aldebaran@example.com"
                     required
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="grid gap-3">
                   <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" required />
+                  <Input 
+                  id="password" 
+                  name="password"
+                  value={loginData.password}
+                  type="password" 
+                  required
+                  onChange={handleChange}
+                  />
                 </div>
-                <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600">
-                  Login
+                <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600" disabled={!isFormValid}>
+                  {isLoading ? <LoadingSpinner></LoadingSpinner> : "Login"}
                 </Button>
               </div>
               <div className="text-center text-sm">
@@ -74,6 +150,16 @@ export function LoginForm({
         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
         and <a href="#">Privacy Policy</a>.
       </div>
+
+      <Notification
+            message={notification.message}
+            type={notification.type}
+            isVisible={notification.isVisible}
+            onClose={hideNotification}
+            duration={1000}
+            position="top-center"
+        >
+        </Notification>
     </div>
   )
 }
