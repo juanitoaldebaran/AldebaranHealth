@@ -1,7 +1,9 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import TypingWord from "@/components/TypingWord";
 import type React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
   return (
@@ -9,10 +11,13 @@ const Home: React.FC = () => {
       {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
-      <section
+      {/* Hero Section with Motion */}
+      <motion.section
         id="hero"
-        className="min-h-screen flex items-center bg-gradient-to-b from-slate-50 to-blue-50"
+        className="min-h-screen flex items-center bg-gradient-to-b from-slate-50 to-blue-50 py-20"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="flex flex-col justify-center items-center space-y-6">
@@ -25,7 +30,7 @@ const Home: React.FC = () => {
               </h2>
               <p className="leading-7 mt-6 text-justify max-w-3xl">
                 Born out of the rising challenges in mental and physical health,
-                <span className="font-semibold text-blue-500"> AldebaranHealth</span> 
+                <span className="font-semibold text-blue-500"> AldebaranHealth </span>
                 is an AI-powered tool designed to support your well-being. By
                 combining advanced technology with compassionate care, we help
                 individuals access reliable guidance, personalized insights, and
@@ -34,7 +39,15 @@ const Home: React.FC = () => {
               <blockquote className="mt-6 border-l-2 pl-6 italic">
                 &quot;The greatest wealth is health.&quot;
               </blockquote>
+              <div className="mt-5">
+                <TypingWord
+                  word="Enhancing Artificial Intelligence in Healthcare"
+                  classStyle="font-semibold"
+                />
+              </div>
             </div>
+
+            {/* Buttons */}
             <div className="flex items-center justify-center gap-2">
               <Link
                 to="/services"
@@ -46,15 +59,17 @@ const Home: React.FC = () => {
                 to={"/about"}
                 className="bg-blue-500 text-white px-4 py-2 text-[16px] rounded-lg hover:bg-blue-800 transition-colors"
               >
-                Get to know us more
+                Get to know us more 🚀
               </Link>
             </div>
+
+            {/* Tagline */}
             <p className="text-xs bg-green-400 text-white rounded-full p-2">
-              Now powered by AI Chatbots and Facial Recognition
+              📍Now powered by AI Chatbots and Facial Recognition
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <Footer />
