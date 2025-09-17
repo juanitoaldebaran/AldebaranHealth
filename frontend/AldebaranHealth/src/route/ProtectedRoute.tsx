@@ -10,9 +10,9 @@ const ProtectedRoute = ({redirectPath = "/login"}: ProtectedRouteProps) => {
     const {isAuthenticated, isLoading} = useAuthContext();
     const location = useLocation();
 
-    {isLoading && (
-        <LoadingSpinner></LoadingSpinner>
-    )}
+     if (isLoading) {
+        return <LoadingSpinner />;
+    }
 
     if (!isAuthenticated) {
         return <Navigate to={redirectPath} state={{fromPath: location}}></Navigate>
