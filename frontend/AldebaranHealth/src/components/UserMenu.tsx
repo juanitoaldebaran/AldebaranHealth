@@ -29,7 +29,7 @@ const UserMenu: React.FC = () => {
         )
     }
     return (
-         <DropdownMenu>
+      <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className="flex items-center justify-center cursor-pointer">
           <Avatar className="h-8 w-8 flex items-center">
@@ -45,7 +45,7 @@ const UserMenu: React.FC = () => {
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+        <DropdownMenuItem className="cursor-pointer">
           <User className="mr-2 h-4 w-4" />
           <span>{user?.userName}</span>
         </DropdownMenuItem>

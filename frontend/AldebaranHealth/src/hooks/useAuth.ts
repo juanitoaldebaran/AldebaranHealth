@@ -13,7 +13,6 @@ const useAuth = (): AuthContextType => {
         const storedUser = localStorage.getItem("user");
 
         setIsLoading(true);
-
         if (jwtToken && storedUser) {
             try {
                 const parsedUser = JSON.parse(storedUser) as UserResponse;
@@ -26,6 +25,8 @@ const useAuth = (): AuthContextType => {
             } finally {
                 setIsLoading(false);
         }
+        } else {
+            setIsLoading(false);
         }
 
     }, []);
@@ -51,7 +52,7 @@ const useAuth = (): AuthContextType => {
         } catch (error: any) {
             setIsAuthenticated(false);
             setUser(null);
-            throw new error;
+            throw error;
         }
     }
 
@@ -64,7 +65,7 @@ const useAuth = (): AuthContextType => {
 
             return signUpUserData;
         } catch (error: any) {
-            throw new error;
+            throw error;
         }
     }
 
@@ -81,7 +82,7 @@ const useAuth = (): AuthContextType => {
 
             return data;
         } catch (error: any) {
-            throw new error;
+            throw error;
         }
     }
 
