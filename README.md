@@ -6,12 +6,11 @@ AldebaranHealth is a AI powered tools for Doctor Virtual Assistant for Mental He
 
 | Component        | Technology / Frameworks                |
 |------------------|-----------------------------------------|
-| Frontend         | TypeScript, [Framework / Library]      |
+| Frontend         | TypeScript, ShadCN UI   |
 | Backend          | Java, TypeScript, REST API framework    |
-| AI / ML          | [Libraries / models used, e.g. TensorFlow, PyTorch, scikit-learn, or custom models] |
-| Database         | [e.g. PostgreSQL, MongoDB, etc.]        |
-| Testing          | Unit tests, integration tests           |
-| Deployment       | [CI/CD tools, hosting / cloud providers] |
+| AI / ML          | TensorFlow,scikit-learn |
+| Database         | PostgreSQL        |        |
+| Deployment       | Vercel, Docker, Railway |
 
 ---
 
