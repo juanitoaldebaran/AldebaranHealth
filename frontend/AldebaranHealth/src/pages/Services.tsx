@@ -99,33 +99,20 @@ const Services: React.FC = () => {
     
                                 <CardContent className="flex flex-col justify-center">
 
-                                    <p className="font-bold text-[16px] text-center">
-                                        📈 Data Analytics
-                                    </p>
-
-                                    <div className="grid grid-cols-2 gap-4 mt-6">
-                                        {Object.entries(service.stats).map(([key, value]) => (
-                                        <div key={key} className="text-center p-3 bg-slate-50 rounded-lg">
-                                            <div className="font-bold text-xl text-slate-800">{value}</div>
-                                            <div className="text-sm text-slate-600 capitalize">{key}</div>
-                                        </div>
-                                        ))}
-                                    </div>
-
                                     <p className="font-bold text-[16px] mt-6 text-center">
                                         ⚡️ Key Features
                                     </p>
                                     <div className="grid grid-cols-2 gap-4 mt-4">
-                                        <div className="bg-gray-200 text-black p-2 rounded-lg">
+                                        <div className="bg-gray-50 text-black p-2 rounded-lg shadow-lg">
                                             {service.features[0]}
                                         </div>
-                                        <div className="bg-gray-200 text-black p-2 rounded-lg">
+                                        <div className="bg-gray-50 text-black p-2 rounded-lg shadow-lg">
                                             {service.features[1]}
                                         </div>
-                                        <div className="bg-gray-200 text-black p-2 rounded-lg">
+                                        <div className="bg-gray-50 text-black p-2 rounded-lg shadow-lg">
                                             {service.features[2]}
                                         </div>
-                                        <div className="bg-gray-200 text-black p-2 rounded-lg">
+                                        <div className="bg-gray-50 text-black p-2 rounded-lg shadow-lg">
                                             {service.features[3]}
                                         </div>
                                     </div>

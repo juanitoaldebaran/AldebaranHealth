@@ -13,7 +13,7 @@ async function createMessage(conversationId: number, data: MessageRequest): Prom
     }
 }
 
-async function getConversationMessages(conversationId: number): Promise<MessageResponse> {
+async function getConversationMessages(conversationId: number): Promise<MessageResponse[]> {
     try {
         const response = await api.get(`/conversation/${conversationId}/messages/all`);
         console.log("Successfully get all messages ✅");

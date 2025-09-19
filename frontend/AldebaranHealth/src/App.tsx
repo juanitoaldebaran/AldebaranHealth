@@ -10,22 +10,21 @@ import ProtectedRoute from './route/ProtectedRoute'
 import Conversation from './pages/Conversation'
 
 function App() {
-
   return (
     <AuthProvider>
       <Router>
-          <Routes>
-          <Route element={<Login />} path="/login"></Route>
-          <Route element={<SignUp />} path="/signup"></Route>
-
-          <Route element={<Home />} path="/"></Route>
-          <Route element={<About />} path="/about"></Route>
-          <Route element={<Services />} path="/services"></Route>
+        <Routes>
+          <Route element={<Login />} path="/login" />
+          <Route element={<SignUp />} path="/signup" />
+          
+          <Route element={<Home />} path="/" />
+          <Route element={<About />} path="/about" />
+          <Route element={<Services />} path="/services" />
 
           <Route element={<ProtectedRoute />}>
-            <Route element={<Conversation />} path="/conversation"></Route>
+            <Route element={<Conversation />} path="/conversation" />            
+            <Route element={<Conversation />} path="/conversation/:conversationId/messages" />
           </Route>
-
         </Routes>
       </Router>
     </AuthProvider>

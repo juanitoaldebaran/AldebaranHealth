@@ -12,7 +12,6 @@ async function createConversation(data: ConversationRequest): Promise<Conversati
     }
 }
 
-// Fixed: Return array of conversations since UI expects multiple conversations
 async function getUserConversation(): Promise<ConversationResponse[]> {
     try {
         const response = await api.get("/conversation");
@@ -20,22 +19,18 @@ async function getUserConversation(): Promise<ConversationResponse[]> {
         
         const data = response.data;
         
-        // Handle different API response formats
         if (Array.isArray(data)) {
             return data;
         }
         
-        // If data has a conversations property (nested structure)
         if (data && data.conversations && Array.isArray(data.conversations)) {
             return data.conversations;
         }
         
-        // If single conversation object, wrap in array
         if (data && typeof data === 'object') {
             return [data];
         }
         
-        // Fallback to empty array
         return [];
     } catch (error: any) {
         console.error("Failed to get user conversation ❌", error);
@@ -54,7 +49,6 @@ async function getAllConversations(): Promise<Conversation[]> {
     }
 }
 
-// Additional utility functions
 async function getConversationById(id: number): Promise<ConversationResponse> {
     try {
         const response = await api.get(`/conversation/${id}`);

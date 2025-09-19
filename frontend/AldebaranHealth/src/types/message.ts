@@ -4,18 +4,18 @@ export interface Message {
     messageId: number;
     content: string;
     senderType?: 'AI' | 'USER';
-    createdAt: number;
+    createdAt: string;
     conversation: Conversation;
 }
 
 
 export interface MessageRequest {
     content: string;
-    createdAt: number;
+    createdAt: string;
 }
 
 export interface MessageResponse {
     content: string;
     senderType?: 'AI' | 'USER';
-    createdAt: number;
+    createdAt: string;
 }

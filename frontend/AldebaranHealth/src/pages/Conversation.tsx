@@ -1,10 +1,8 @@
 import { AppSidebar } from "@/components/AppSidebar"
-import ChatInterface from "@/components/ChatInterface"
-import { Separator } from "@/components/ui/separator"
+import { ChatInterface } from "@/components/ChatInterface"
 import {
   SidebarInset,
   SidebarProvider,
-  SidebarTrigger,
 } from "@/components/ui/sidebar"
 
 export default function Conversation() {
