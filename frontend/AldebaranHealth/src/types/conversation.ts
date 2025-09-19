@@ -6,7 +6,7 @@ export interface Conversation {
     user: User;
     name: string;
     sessionType?: 'DOCTOR' | 'THERAPIST';
-    createdAt: number;
+    createdAt: string;
     messageList: Message[];
 }
 
@@ -18,5 +18,5 @@ export interface ConversationResponse {
     conversationId: number;
     name: string;
     sessionType?: 'DOCTOR' | 'THERAPIST';
-    createdAt: number;
+    createdAt: string;
 }

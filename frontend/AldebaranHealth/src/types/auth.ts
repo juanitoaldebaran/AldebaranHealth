@@ -5,7 +5,7 @@ export interface User {
     userName: string;
     email: string;
     password: string;
-    createdAt: number;
+    createdAt: string;
     conversationList: Conversation[];
 }
 
@@ -29,7 +29,7 @@ export interface CreateUserRequest {
 export interface UserResponse {
     userName: string;
     email: string;
-    createdAt: number;
+    createdAt: string;
 }
 
 export interface AuthContextType {
