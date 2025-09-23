@@ -40,3 +40,6 @@ With an intelligent **AI chatbot**, **stress analysis tools**, and a **healthcar
 
 ## 📂 Project Structure
 
+ai/
+frontend/
+backend/
