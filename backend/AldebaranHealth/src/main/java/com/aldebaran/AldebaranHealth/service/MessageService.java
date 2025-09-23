@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +46,7 @@ public class MessageService {
             userMessage.setContent(messageRequest.getContent().trim()); // Trim the message
             userMessage.setConversation(conversationById);
             userMessage.setSenderType(SenderType.USER);
-            userMessage.setCreatedAt(LocalDateTime.now());
+            userMessage.setCreatedAt(new Date());
 
             messageRepo.save(userMessage);
             logger.info("User message saved for conversation: {}", conversationId);
@@ -60,7 +60,7 @@ public class MessageService {
                     aiMessage.setContent(aiResponse.text().trim());
                     aiMessage.setConversation(conversationById);
                     aiMessage.setSenderType(SenderType.AI);
-                    aiMessage.setCreatedAt(LocalDateTime.now());
+                    aiMessage.setCreatedAt(new Date());
 
                     messageRepo.save(aiMessage);
                     logger.info("AI Message saved for conversation: {}", conversationId);
@@ -73,7 +73,7 @@ public class MessageService {
                 aiErrorMessage.setConversation(conversationById);
                 aiErrorMessage.setContent("AI Failed to generate response, Please try again");
                 aiErrorMessage.setSenderType(SenderType.AI);
-                aiErrorMessage.setCreatedAt(LocalDateTime.now());
+                aiErrorMessage.setCreatedAt(new Date());
 
                 messageRepo.save(aiErrorMessage);
                 logger.info("AI Failed messages saved for conversation: {}", conversationId);

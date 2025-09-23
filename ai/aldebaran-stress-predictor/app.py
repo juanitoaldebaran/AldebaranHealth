@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-CORS(app, origins=["*"])
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
 
 stress_analyzer = StressAnalyzer()
 
@@ -223,12 +223,12 @@ if __name__ == '__main__':
             logger.error(f"❌ Failed to train initial model: {e}")
             logger.info("🔄 Model will be trained on first prediction request")
     
-    host = os.getenv('FLASK_HOST', '127.0.0.1')
+    host = os.getenv('FLASK_HOST', '0.0.0.0')
     port = int(os.getenv('FLASK_PORT', 5000))
     debug = os.getenv('FLASK_ENV') == 'development'
     
     logger.info(f"🚀 Starting AldebaranHealth Stress Analysis API")
-    logger.info(f"📍 Server: http://{host}:{port}")
+    logger.info(f"📍 Server: http://localhost:{port}")
     logger.info(f"🔧 Debug mode: {debug}")
     logger.info(f"🧠 Model trained: {stress_analyzer.is_trained}")
     

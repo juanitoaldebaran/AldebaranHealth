@@ -12,6 +12,8 @@ interface NavLinkType {
 const navLinks: NavLinkType[] = [
     { name: "About", path: "/about" },
     { name: "AI Services", path: "/services" },
+    {name: "Stress Analysis", path: "/stress-analysis"},
+    {name: "Find Healthcare Services", path: "/healthcare"}
 ];
 
 export default function Navbar() {

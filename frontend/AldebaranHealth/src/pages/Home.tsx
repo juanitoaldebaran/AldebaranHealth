@@ -65,7 +65,7 @@ const Home: React.FC = () => {
 
             {/* Tagline */}
             <p className="text-xs bg-green-400 text-white rounded-full p-2">
-              📍Now powered by AI Chatbots and Facial Recognition
+              📍Now powered by AI Chatbots and Geological Clinic
             </p>
           </div>
         </div>

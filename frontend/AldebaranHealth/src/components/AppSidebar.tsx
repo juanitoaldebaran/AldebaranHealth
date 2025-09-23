@@ -103,7 +103,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         try {
             const timestamp = new Date().toLocaleString();
             const response: ConversationRequest = {
-                title: `New Conversation - ${timestamp}`
+                title: `Doctor AI Conversation - ${timestamp}`
             };
             const data = await conversationServices.createConversation(response);
             setConversationList((prev) => [data, ...prev]);

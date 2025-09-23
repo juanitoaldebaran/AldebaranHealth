@@ -5,12 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -35,9 +34,8 @@ public class User implements UserDetails {
     @Column (name = "password", nullable = false)
     private String password;
 
-    @CreationTimestamp
     @Column (name = "created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Conversation> conversationList;

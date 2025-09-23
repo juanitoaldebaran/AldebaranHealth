@@ -18,8 +18,8 @@ import {
   Laptop,
   HeartPulse,
   Activity,
-  Mic,
-  MessageSquare
+  MessageSquare,
+  Map
 } from "lucide-react";
 
 const About: React.FC = () => {
@@ -34,7 +34,7 @@ const About: React.FC = () => {
   // Services
   const services = [
     { id: "chatbot", title: "AI Doctor Chatbot", description: "Instant medical guidance and personalized advice, powered by our AI-driven doctor assistant.", icon: <MessageSquare className="w-8 h-8" />, color: "bg-blue-500" },
-    { id: "voice", title: "Voice Therapist AI", description: "Talk to an AI therapist in real-time with speech-to-text technology designed for mental health support.", icon: <Mic className="w-8 h-8" />, color: "bg-green-500" },
+    { id: "location", title: "Find Nearest Clinic", description: "Provide accessibility to locate nearest healthcare within your stay", icon: <Map className="w-8 h-8" />, color: "bg-green-500" },
     { id: "stress", title: "Stress Analysis", description: "Measure and track stress levels to gain insights into your mental well-being and lifestyle balance.", icon: <Brain className="w-8 h-8" />, color: "bg-purple-500" },
     { id: "insights", title: "Health Insights", description: "Access data-driven insights on your overall health, supported by continuous AI monitoring.", icon: <Activity className="w-8 h-8" />, color: "bg-yellow-500" },
     { id: "privacy", title: "Secure Data", description: "Your health data is protected with cutting-edge encryption and strict privacy compliance.", icon: <ShieldCheck className="w-8 h-8" />, color: "bg-red-500" },

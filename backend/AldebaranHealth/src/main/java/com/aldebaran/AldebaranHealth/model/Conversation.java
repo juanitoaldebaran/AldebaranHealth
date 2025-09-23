@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -35,16 +36,11 @@ public class Conversation {
     @Column (name = "session_type")
     private SessionType sessionType;
 
-    @CreationTimestamp
     @Column (name = "created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     @OneToMany (mappedBy = "conversation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Message> messageList;
 
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-    }
 
 }

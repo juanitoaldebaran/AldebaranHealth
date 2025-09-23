@@ -1,12 +1,12 @@
 package com.aldebaran.AldebaranHealth.dto.request;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class MessageRequest {
     private String content;
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
-    public MessageRequest(String content, LocalDateTime createdAt) {
+    public MessageRequest(String content, Date createdAt) {
         this.content = content;
         this.createdAt = createdAt;
     }
@@ -22,11 +22,11 @@ public class MessageRequest {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

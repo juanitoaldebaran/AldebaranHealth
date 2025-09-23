@@ -107,7 +107,7 @@ export function ChatInterface({ className }: ChatInterfaceProps) {
 
   if (!conversationId) {
     return (
-      <div className={`flex-1 flex items-center justify-center bg-gray-50 ${className}`}>
+      <div className={`flex-1 flex items-center justify-center bg-white ${className}`}>
         <div className="text-center">
           👨🏻‍⚕️
           <h3 className="text-lg font-medium text-gray-900 mb-2">

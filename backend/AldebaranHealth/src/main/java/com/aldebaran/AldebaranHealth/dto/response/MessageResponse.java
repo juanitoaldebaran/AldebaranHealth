@@ -2,14 +2,14 @@ package com.aldebaran.AldebaranHealth.dto.response;
 
 import com.aldebaran.AldebaranHealth.enums.SenderType;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class MessageResponse {
     private String content;
     private SenderType senderType;
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
-    public MessageResponse(String content, SenderType senderType, LocalDateTime createdAt) {
+    public MessageResponse(String content, SenderType senderType, Date createdAt) {
         this.content = content;
         this.senderType = senderType;
         this.createdAt = createdAt;
@@ -34,11 +34,11 @@ public class MessageResponse {
         this.senderType = senderType;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }
