@@ -3,13 +3,13 @@ package com.aldebaran.AldebaranHealth.dto.response;
 import com.aldebaran.AldebaranHealth.enums.SessionType;
 import com.aldebaran.AldebaranHealth.model.Conversation;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class ConversationResponse {
     private Long conversationId;
     private String name;
     private SessionType sessionType;
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     public ConversationResponse(Conversation conversation) {
         this.conversationId = conversation.getConversationId();
@@ -45,11 +45,11 @@ public class ConversationResponse {
         this.sessionType = sessionType;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }

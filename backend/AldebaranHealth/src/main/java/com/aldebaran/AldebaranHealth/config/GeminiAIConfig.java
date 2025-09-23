@@ -19,7 +19,7 @@ public class GeminiAIConfig {
          Client client = Client.builder()
                  .apiKey(geminiApiKey)
                  .httpOptions(HttpOptions.builder()
-                         .apiVersion("v1beta")
+                         .apiVersion("v1alpha")
                          .build())
                  .build();
 

@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Card, CardContent,CardHeader } from "@/components/ui/card";
-import { motion } from "framer-motion";
-import { Activity, Bot, Mic } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Services: React.FC = () => {
@@ -16,39 +16,21 @@ const Services: React.FC = () => {
             features: ['Medical Knowledge Base', 'Symptom Analysis', 'Treatment Suggestions', 'Emergency Detection'],
             stats: { consultations: '15K+', accuracy: '94%' }
         }, 
-        {
-            id: 'voice-therapy',
-            title: 'AI Therapist Voice Creation',
-            description: 'Create personalized AI therapist voices with advanced emotional intelligence and therapeutic training.',
-            icon: Mic,
-            gradient: 'from-purple-500 to-pink-500',
-            features: ['Voice Cloning', 'Emotional Modeling', 'Therapeutic Scripts', 'Multi-language Support'],
-            stats: { users: '2.5K+', satisfaction: '96%' }
-        },
-        {
-            id: 'stress-analysis',
-            title: 'Stress Analysis Suite',
-            description: 'Advanced biometric and behavioral analysis for comprehensive stress level monitoring.',
-            icon: Activity,
-            gradient: 'from-green-500 to-emerald-500',
-            features: ['Heart Rate Monitoring', 'Voice Analysis', 'Behavioral Patterns', 'Wellness Reports'],
-            stats: { analyses: '8.2K+', insights: '99%' }
-        }
     ]
 
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
             {/*Navbar Section*/}
             <Navbar />
 
             {/*Hero Section*/}
             <motion.section 
-            className="min-h-screen flex items-center bg-white py-20"
+            className="min-h-screen flex items-center bg-white"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
             >
-                <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center">
+            <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center">
                 <motion.div 
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -66,21 +48,33 @@ const Services: React.FC = () => {
                         🤖
                     </motion.div>
                     <h3 className="text-2xl font-semibold text-gray-800">Improving Human Health Environment Through Technology</h3>
-                    <p className="text-lg text-gray-600 leading-relaxed"><span className="font-semibold text-blue-600">AldebaranHealth</span>, provided advanced voice synthesis, intelligent medical assistance and comprehensive wellness monitoring with <span className="text-blue-600">cutting-edge AI technology</span></p>
+                    <p className="text-lg text-gray-600 leading-relaxed"><span className="font-semibold text-blue-600">AldebaranHealth</span>, provided advanced AI healthcare with intelligent medical assistance and comprehensive wellness monitoring with <span className="text-blue-600">cutting-edge AI technology</span></p>
                 </motion.div>
                 </div>
             </motion.section>
 
             {/* Features Section */}
-            <motion.section 
-                className="min-h-screen bg-gradient-to-b from-slate-50 to-blue-50"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-            >
-            <div className="max-w-6xl mx-auto">
-                <div className="mt-20 px-6 py-20 space-y-16">
+            <div className="max-w-4xl mx-auto px-6 py-8">
+            <AnimatePresence mode="wait">
+                <div className="px-6 py-20 space-y-16">
+                {/* Hero Section */}
+                <div className="text-center space-y-6">
+                  <motion.div
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="text-8xl"
+                  >
+                    🤖
+                  </motion.div>
+                  <h1 className="text-5xl font-bold text-gray-900">
+                    AI Virtual <span className="text-blue-600">Doctor</span>
+                  </h1>
+                  <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    AI powered tools with personalized medical suggestions related with physical and mental health issues
+                    available 24/7 with our AI chatbot service
+                  </p>
+                </div>
                     {services.map((service) => {
                         const IconComponent = service.icon;
                         return (
@@ -117,7 +111,7 @@ const Services: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <Link to={"/conversation"} className={`bg-gradient-to-br ${service.gradient} mt-8 w-full bg-black rounded-lg text-white text-center p-4`}>
+                                    <Link to={"/conversation"} className={`text-center cursor-pointer mt-4 w-full bg-gradient-to-r ${service.gradient} text-white py-2 px-3 rounded-xl font-semibold text-lg hover:shadow-lg transform hover:scale-102 transition-all duration-200`}>
                                         Get Started
                                     </Link>
                                 </CardContent>
@@ -125,8 +119,8 @@ const Services: React.FC = () => {
                         )
                     })}
                 </div>
+            </AnimatePresence>
             </div>
-            </motion.section>
                     
             {/*Footer Section*/}
             <Footer />

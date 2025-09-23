@@ -32,29 +32,13 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white hover:text-gray-200">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
-            <ul className="mt-3 space-y-2">
-              <li>
-                <Link to="/services" className="text-white hover:text-gray-200">
-                  Doctor AI Assistant
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-white hover:text-gray-200">
-                  Therapist AI Assistant
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-white hover:text-gray-200">
+                <Link to="/stress-analysis" className="text-white hover:text-gray-200">
                   Stress Analysis
+                </Link>
+              </li>
+              <li>
+                <Link to="/healthcare" className="text-white hover:text-gray-200">
+                  Find Healthcare Services
                 </Link>
               </li>
             </ul>

@@ -9,6 +9,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table (name = "message")
@@ -29,17 +30,12 @@ public class Message {
     @Enumerated(EnumType.STRING)
     private SenderType senderType;
 
-    @CreationTimestamp
     @Column (name = "created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     @ManyToOne
     @JoinColumn (name = "conversation_id", nullable = false)
     private Conversation conversation;
 
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-    }
 
 }

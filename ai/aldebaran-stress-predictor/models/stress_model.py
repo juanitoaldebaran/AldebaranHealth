@@ -1,12 +1,3 @@
-"""
-Machine Learning Model for Stress Analysis
-
-This module handles:
-1. Training ML models on PSS-10 data
-2. Making predictions from user responses
-3. Providing detailed stress analysis with recommendations
-"""
-
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier

@@ -10,7 +10,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Avatar, AvatarFallback } from "@radix-ui/react-avatar";
-import { LogOut, User } from "lucide-react";
+import { LogOut, User, User2Icon } from "lucide-react";
 
 const UserMenu: React.FC = () => {
     const {user, isAuthenticated, logout} = useAuth();
@@ -32,13 +32,13 @@ const UserMenu: React.FC = () => {
       <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className="flex items-center justify-center cursor-pointer">
-          <Avatar className="h-8 w-8 flex items-center">
+          <Avatar className="h-8 w-8 flex items-center gap-2">
             <AvatarFallback>
               {user?.userName?.charAt(0).toUpperCase() ??
                 user?.email?.charAt(0).toUpperCase()}
             </AvatarFallback>
+            <User2Icon />
           </Avatar>
-          <span>{user?.userName ?? "User"}</span>
         </Button>
       </DropdownMenuTrigger>
 
@@ -47,7 +47,7 @@ const UserMenu: React.FC = () => {
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer">
           <User className="mr-2 h-4 w-4" />
-          <span>{user?.userName}</span>
+          <span className="text-blue-600">{user?.userName}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
           <LogOut className="mr-2 h-4 w-4" />
