@@ -2,6 +2,11 @@
 
 ---
 
+## Link for Live Demo 👇🏼
+https://aldebaran-health.vercel.app/
+
+## About AldebaranHealth 👋🏽
+
 **AldebaranHealth** is an **AI-powered Virtual Healthcare Assistant** that empowers users to access **personalized physical and mental health support** using cutting-edge technology.  
 
 With an intelligent **AI chatbot**, **stress analysis tools**, and a **healthcare facility locator**, AldebaranHealth is designed to make healthcare **accessible, scalable, and secure** for everyone.
