@@ -12,7 +12,6 @@ public class GeminiAIService {
     private final Logger logger = LoggerFactory.getLogger(GeminiAIService.class);
     private final Client aiClient;
 
-    // Use the same model name as your working code
     private static final String AI_GEMINI_MODEL = "gemini-2.5-flash";
 
     @Autowired
@@ -24,7 +23,6 @@ public class GeminiAIService {
         int maxRetries = 3;
         int retryDelay = 1000;
 
-        // Add input validation like your working code
         if (message == null || message.trim().isEmpty()) {
             throw new IllegalArgumentException("Message cannot be empty");
         }
