@@ -67,6 +67,6 @@ public class GeminiAIService {
             }
         }
 
-        throw new RuntimeException("Failed to generate AI response");
+        throw new RuntimeException("Error to generate AI response");
     }
 }
