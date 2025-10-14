@@ -54,7 +54,7 @@ Locate Healthcare Services
 |-------------|--------------------------------|
 | **Frontend** | TypeScript, ShadCN UI          |
 | **Backend**  | Spring Boot, TypeScript        |
-| **AI / ML**  | Scikit-learn                   |
+| **AI / ML**  | Scikit-learn, Flask            |
 | **Database** | PostgreSQL                     |
 
 ---
